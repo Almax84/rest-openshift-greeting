@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: net-tools
+  namespace: rai-pod-session-affinity
+spec:
+  containers:
+    - name: net-tools
+      image: praqma/network-multitool
+      command: [ "/bin/sh", "-c", "while true ;do curl http://myspringboot:8080/greeting 2>/dev/null && echo ''; sleep 1; done;" ]
+  restartPolicy: Never
+
